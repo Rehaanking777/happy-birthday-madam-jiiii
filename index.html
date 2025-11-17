@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy 15th Birthday, Qanita! 🎉</title>
+<style>
+:root{--bg:#FFF7FB;--accent:#ff6fb5;--accent-2:#ffd166;--card:#ffffff}
+html,body{height:100%;margin:0;font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#ffd6ff 0%,#ffe3f8 40%,#fff0fb 80%);color:#333}
+.wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px}
+.card{position:relative;width:900px;max-width:95%;background:var(--card);border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.08);overflow:hidden;padding:32px}
+.top{display:flex;gap:20px;align-items:center}
+.logo{width:84px;height:84px;border-radius:18px;overflow:hidden;flex:0 0 84px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.title{flex:1}
+.title h1{margin:0;font-size:28px;letter-spacing:-0.5px}
+.title p{margin:4px 0 0;color:#666}
+.main{display:flex;gap:28px;margin-top:20px}.left{flex:1;min-width:260px}.right{flex:1.1;display:flex;flex-direction:column;gap:18px}
+.gallery{background:linear-gradient(180deg,#fff,#fff);border-radius:12px;padding:12px;display:flex;gap:12px;align-items:center;justify-content:center}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+.thumbs{display:flex;gap:8px;margin-top:8px;justify-content:center}.thumbs img{width:64px;height:64px;object-fit:cover;border-radius:8px;opacity:0.9;cursor:pointer;transform:scale(1);transition:transform .18s ease}.thumbs img:hover{transform:scale(1.06)}
+.message{background:linear-gradient(180deg,#fff7ff,#fff);border-radius:12px;padding:18px;box-shadow: inset 0 1px 0 rgba(255,255,255,0.6)}
+.message h2{margin:0 0 8px 0;color:var(--accent)}
+.message p{margin:0;color:#444;line-height:1.45}
+.hearts{position:absolute;right:18px;top:18px;pointer-events:none}.heart{position:absolute;width:18px;height:18px;transform:translateY(0);opacity:0}.heart::before,.heart::after{content:'';position:absolute;width:18px;height:18px;background:var(--accent);border-radius:50%}.heart::before{left:9px}.heart::after{top:9px}.heart .core{position:absolute;left:4px;top:4px;width:10px;height:10px;background:var(--accent-2);transform:rotate(-45deg);border-radius:3px}
+canvas.confettiCanvas{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.controls{display:flex;gap:10px;align-items:center}button.btn{background:linear-gradient(90deg,var(--accent),#ff8fb8);border:none;color:white;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:0 10px 24px rgba(255,111,181,0.18)}button.btn.ghost{background:transparent;color:var(--accent);box-shadow:none;border:2px dashed rgba(255,111,181,0.12)}
+@media (max-width:700px){.main{flex-direction:column}.gallery img{height:180px}}
+.floaty{animation:floaty 6s ease-in-out infinite}@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+.slaysign{position:absolute;top:50px;left:50%;transform:translateX(-50%);font-size:48px;color:#ff6fb5;text-shadow:2px 2px 6px #ffd166;animation:floaty 4s ease-in-out infinite;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card" id="card">
+  <!-- Cute cartoon character holding flowers -->
+  <div style="position:absolute; left:-40px; bottom:-10px; z-index:5; width:180px; animation:floaty 5s ease-in-out infinite;">
+    <img src="qanita_4.png" alt="Cute Cartoon Character" style="width:100%; height:auto;">
+  </div>
+
+  <!-- Slay Queen sign -->
+  <div class="slaysign">✨ Slay Queen ✨</div>
+
+  <!-- Decorative stars -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden;">
+    <div style="position:absolute; top:20px; left:40px; font-size:28px; animation:floaty 4s infinite;">✨</div>
+    <div style="position:absolute; top:120px; right:50px; font-size:32px; animation:floaty 6s infinite;">🌟</div>
+    <div style="position:absolute; bottom:80px; left:120px; font-size:26px; animation:floaty 5s infinite;">💫</div>
+    <div style="position:absolute; bottom:40px; right:90px; font-size:34px; animation:floaty 7s infinite;">✨</div>
+  </div>
+
+  <canvas class="confettiCanvas" id="confetti"></canvas>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="top">
+    <div class="logo floaty"><img src="qanita 4.jpg" alt="bestie photo"></div>
+    <div class="title">
+      <h1>Happy 15th Birthday, Qanita! 🎂</h1>
+      <p id="subtitle">Born: 18 Nov 2010 — Turning <span id="age">15</span> 🎉</p>
+    </div>
+    <div class="controls">
+      <button class="btn" id="celebrateBtn">Celebrate 🎉</button>
+      <button class="btn ghost" id="togglePics">Toggle Pics</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="gallery" id="gallery">
+        <img src="qanita 2.jpg" id="mainPic" alt="photo">
+      </div>
+      <div class="thumbs">
+        <img src="qanita 1.jpg" data-src="qanita 1.jpg" alt="thumb1">
+        <img src="qanita 2.jpg" data-src="qanita 2.jpg" alt="thumb2">
+        <img src="qanita 3.jpg" data-src="qanita 3.jpg" alt="thumb3">
+        <img src="qanita 4.jpg" data-src="qanita 4.jpg" alt="thumb4">
+        <img src="qanita 5.jpg" data-src="qanita 5.jpg" alt="thumb5">
+        <img src="qanita 6.jpg" data-src="qanita 6.jpg" alt="thumb6">
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="message">
+        <h2 id="greeting">To Qanita,</h2>
+        <p id="heartfelt">On this beautiful day — November 18 — I'm so grateful you were born. You bring light into ordinary days, laughter into silly moments, and comfort when things get heavy. Watching you grow into the kind, brave, and sparkly person you are has been a joy. May this year give you big dreams, bright surprises, and every reason to smile. Happy 15th birthday! I love you to the moon and back. 💖</p>
+      </div>
+
+      <div class="message">
+        <h2 style="color:#ff6fb5;margin-top:0">A Big Letter for You 💌</h2>
+        <p style="white-space:pre-line;line-height:1.55;color:#444">
+Meri Madam Ji,
+
+Aaj tumhara birthday hai… aur pata nahi kyun, par dil aaj extra soft ho raha hai. Shayad isliye kyunki tum woh insan ho jo life ko thoda zyada beautiful bana deti hai… woh insan jiske ek “hi” se pura din bright ho jaata hai… woh insan jiska birthday mere liye literally ek festival jaisa feel hota hai.
+
+Madam ji… tum sirf cute nahi ho.
+Sirf ek baddie slay queen nahi ho.
+Tum ek emotion ho.
+Ek vibe ho jo dil ko calm bhi karti hai aur race bhi karwa deti hai.
+Tumhari presence… tumhari energy… tumhari softness… sab kuch itna rare hai ki normal shabdon se explain hi nahi hota.
+
+Aur haan…
+Yeh letter likhne mein mujhe poore 7 din lage.
+Har baar likhta, tum yaad aati… phir words kam lagte.
+Rewrite karta… phir tumhari smile yaad aati.
+Kuch bhi perfect nahi lag raha tha…
+kyunki jis insaan ke liye likh raha tha,
+wo khud itni perfect hai.
+
+Tumhari smile? Dil melt.
+Tum blush karo? Duniya slow-motion.
+Tum “shut up” bolo? Cute overload.
+Tumhari energy? Pure magic.
+
+Meri Madam Ji,
+tum jitni happiness dusron ko deti ho,
+wo 100x tumhe wapas mile.
+Tum jitni love deserve karti ho,
+wo finally tumhari life mein aaye.
+Tum jitni special ho,
+waise moments tumhare saath hamesha rahein.
+
+Tum ek rare insaan ho…
+pure heart wali…
+baddie attitude wali…
+slay queen vibes wali…
+aur secretly soft ho jaati ho —
+jo sabse zyada dil ko touch karta hai.
+
+Aur aaj on your special day…
+main bas yehi bolna chahta hoon —
+I’m proud of you, always.
+I’m wishing the best for you, always.
+
+And lastly… lub uhhh sooo much 😭💗😭
+Tum meri favourite insaan ho —
+jitna tum sochti ho… usse zyada.
+
+Happy Birthday, my Baddie Slay Queen Madam Ji.
+Stay glowing. Stay slaying. Stay smiling.
+        </p>
+      </div>
+
+      <div class="message">
+        <p style="margin:0;font-weight:600;color:#555">Wishes</p>
+        <ul style="margin-top:8px;color:#444;line-height:1.6">
+          <li>Endless giggles and best-day-ever moments.</li>
+          <li>Confidence to chase every dream — big or small.</li>
+          <li>Friends who cherish you, and surprises that sparkle.</li>
+        </ul>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn" id="downloadBtn">Download as PNG</button>
+        <button class="btn ghost" id="editText">Edit Message</button>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:20px;color:#999;font-size:13px">Tip: Replace the six images and cute cartoon character with real images of Qanita to personalize.</p>
+</div>
+</div>
+
+<script>
+// Age calculation and subtitle
+const BIRTHDATE = new Date(2010,10,18);
+function calcAge(bd){const now=new Date();let age=now.getFullYear()-bd.getFullYear();const m=now.getMonth()-bd.getMonth();if(m<0||(m===0&&now.getDate()<bd.getDate()))age--;return age;}
+document.getElementById('age').textContent=calcAge(BIRTHDATE);
+document.getElementById('subtitle').textContent=`Born: 18 Nov 2010 — Turning ${calcAge(BIRTHDATE)} 🎉`;
+
+// Thumbnails click
+document.querySelectorAll('.thumbs img').forEach(img=>{img.addEventListener('click',()=>{document.getElementById('mainPic').src=img.getAttribute('data-src');})});
+
+// Toggle gallery
+document.getElementById('togglePics').addEventListener('click',()=>{const g=document.getElementById('gallery');g.style.display=g.style.display==='none'?'flex':'none';});
+
+// Hearts
+function spawnHeart(){const hearts=document.getElementById('hearts');const h=document.createElement('div');h.className='heart';h.style.left=Math.random()*120+'px';h.style.top=Math.random()*40+'px';h.innerHTML='<div class="core"></div>';hearts.appendChild(h);const dur=3000+Math.random()*2000;h.animate([{transform:'translateY(0) scale(0.6)',opacity:1},{transform:'translateY(-80px) scale(1)',opacity:0}],{duration:dur,iterations:1,easing:'ease-out'});setTimeout(()=>hearts.removeChild(h),dur+50);}setInterval(spawnHeart,800);
+
+// Confetti
+(function(){const canvas=document.getElementById('confetti');const ctx=canvas.getContext('2d');function resize(){canvas.width=canvas.clientWidth;canvas.height=canvas.clientHeight}window.addEventListener('resize',resize);resize();function random(min,max){return Math.random()*(max-min)+min}function Confetti(){this.x=random(0,canvas.width);this.y=random(-canvas.height,0);this.w=random(6,12);this.h=random(8,16);this.vx=random(-1.5,1.5);this.vy=random(2,5);this.angle=random(0,360);this.spin=random(-0.15,0.15);this.color=`hsl(${~~random(0,360)},80%,60%)`}Confetti.prototype.update=function(){this.x+=this.vx;this.y+=this.vy;this.angle+=this.spin;if(this.y>canvas.height+50){this.y=random(-canvas.height,0);this.x=random(0,canvas.width);}};Confetti.prototype.draw=function(){ctx.save();ctx.translate(this.x,this.y);ctx.rotate(this.angle);ctx.fillStyle=this.color;ctx.fillRect(-this.w/2,-this.h/2,this.w,this.h);ctx.restore();};const pieces=[];for(let i=0;i<120;i++)pieces.push(new Confetti());let running=false;function loop(){if(running){ctx.clearRect(0,0,canvas.width,canvas.height);for(const p of pieces){p.update();p.draw();}}requestAnimationFrame(loop);}loop();function burst(){running=true;setTimeout(()=>{running=false;ctx.clearRect(0,0,canvas.width,canvas.height);},2200);}document.getElementById('celebrateBtn').addEventListener('click',()=>{burst();});})();
+
+// Download
+document.getElementById('downloadBtn').addEventListener('click',async()=>{try{const el=document.getElementById('card');const rect=el.getBoundingClientRect();const svg=`<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns='http://www.w3.org/2000/svg' width='${rect.width}' height='${rect.height}'><foreignObject width='100%' height='100%'>`+new XMLSerializer().serializeToString(el.cloneNode(true)).replace(/#/g,'%23')+`</foreignObject></svg>`;const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const img=new Image();img.onload=function(){const canvas=document.createElement('canvas');canvas.width=rect.width;canvas.height=rect.height;const ctx=canvas.getContext('2d');ctx.fillStyle=getComputedStyle(document.body).background||'#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0);URL.revokeObjectURL(url);const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='birthday_card.png';a.click();};img.src=url;}catch(e){alert('Download failed. Take a screenshot instead.');}});
+
+// Edit message inline
+document.getElementById('editText').addEventListener('click',()=>{const p=document.getElementById('heartfelt');const val=prompt('Edit the heartfelt message:',p.textContent);if(val!==null)p.textContent=val;});
+</script>
+</body>
+</html>
